@@ -1,0 +1,16 @@
+import board
+import time
+from digitalio import DigitalInOut, Direction
+import random
+from analogio import AnalogIn
+import pwmio
+
+
+temp = AnalogIn(board.A0)
+while True:
+    tempC = (temp.value/65535*3.3-.05)*100
+    tempF = tempC * 9 / 5 + 32
+    print((tempC, tempF))
+    time.sleep(5)
+        
+
